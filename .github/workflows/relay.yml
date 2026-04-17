@@ -1,0 +1,12 @@
+name: Run Relay Server
+on:
+  workflow_dispatch:
+jobs:
+  relay:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: npm install
+      - run: node server.js &
+      - name: Keep alive
+        run: sleep 6h
